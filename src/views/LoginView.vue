@@ -1,0 +1,257 @@
+<template>
+  <div class="scroll-canvas">
+    <div class="css-1jciaoi">
+      <div class="css-3iwqj4">
+        <div class="css-1yyz87g">
+          <img
+            class="css-1woe985"
+            src="../assets/qonnect_icon.svg"
+            alt="Grafana"
+          />
+          <div class="css-1w4npsm">
+            <h1 class="css-1eqpw1q">Welcome to Qonnect</h1>
+          </div>
+        </div>
+        <div class="css-9h8xxw">
+          <div class="css-1t0mszb">
+            <div class="css-lcb2lo">
+              <form class="css-xs0vux" id="form-UserManagement">
+                <div class="css-8e5b3">
+                  <div class="css-1s3tlo7-Label">
+                    <label>
+                      <div class="css-xhqy0o">Username</div>
+                    </label>
+                  </div>
+                  <div>
+                    <div class="css-1kn3rgh-input-wrapper">
+                      <div class="input-group" style="width: 100%">
+                        <input
+                          type="text"
+                          id="username"
+                          name="username"
+                          class="css-1bjepp-input-input"
+                          placeholder="username"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="css-8e5b3">
+                  <div class="css-1s3tlo7-Label">
+                    <label>
+                      <div class="css-xhqy0o">รหัสผ่าน</div>
+                    </label>
+                  </div>
+                  <div>
+                    <div class="css-1kn3rgh-input-wrapper">
+                      <div class="input-group" style="width: 100%">
+                        <input
+                          type="password"
+                          id="password"
+                          name="password"
+                          class="css-1bjepp-input-input"
+                          placeholder="กรุณากรอกรหัสผ่าน"
+                          autocomplete="on"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="css-1daj7gy-button"
+                    aria-label="Login button"
+                    type="submit"
+                    @click="callLogin()"
+                  >
+                    <span class="css-1mhnkuh">เข้าสู่ระบบ</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import { LoginAd, LamdaAcknow } from "@/store/login";
+
+export default {
+  data() {
+    return {
+      Products: {},
+    };
+  },
+  methods: {
+    async callLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      if (username != "" && password != "") {
+        const data = {
+          username: username,
+          password: password,
+        };
+        const result = await LoginAd(data);
+        if (result == "OK") {
+          LamdaAcknow(result);
+        } else {
+          alert("ไม่สามารถเข้าสู่ระบบ");
+        }
+      }
+    },
+  },
+};
+</script>
+<style>
+.css-1yyz87g {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px;
+}
+.css-9h8xxw {
+  display: flex;
+  overflow-y: hidden;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.css-1t0mszb {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  max-width: 415px;
+  width: 100%;
+  transform: translate(0px, 0px);
+  transition: all 0.25s ease 0s;
+  animation: 0.2s ease-out 0s 1 normal none running animation-16t86o;
+}
+.css-lcb2lo {
+  width: 100%;
+  padding-bottom: 16px;
+}
+.css-xs0vux {
+  /* max-width: 600px; */
+  width: 100%;
+}
+.css-8e5b3 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.css-1daj7gy-button {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-weight: 500;
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  margin-top: 20px;
+  padding: 0px 16px;
+  height: 32px;
+  line-height: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid rgb(50, 116, 217);
+  border-radius: 2px;
+  background: linear-gradient(rgb(50, 116, 217) 0%, rgb(31, 96, 196) 100%);
+  color: rgb(255, 255, 255);
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+.css-1jciaoi {
+  background: url(../assets/login_background_dark.svg) center center / cover
+    no-repeat rgb(0, 0, 0);
+  min-height: 100vh;
+  min-width: 100%;
+  margin-left: 0px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.css-3iwqj4 {
+  max-width: 550px;
+  width: 100%;
+  display: flex;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  flex-direction: column;
+  position: relative;
+  -webkit-box-pack: center;
+  justify-content: center;
+  z-index: 1;
+  min-height: 320px;
+  border-radius: 3px;
+  padding: 20px 0px;
+  background: 0% 0% / cover rgba(18, 28, 41, 0.65);
+}
+body {
+  font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+  line-height: 1.5;
+  color: #c7d0d9;
+  font-size: 14px;
+}
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.scroll-canvas {
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.main-view {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background: #141619;
+}
+.css-1bjepp-input-input {
+  background-color: rgb(11, 12, 14);
+  line-height: 1.5;
+  font-size: 14px;
+  color: rgb(199, 208, 217);
+  border: 1px solid rgb(44, 50, 53);
+  padding: 0px;
+  position: relative;
+  z-index: 0;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  border-radius: 2px;
+  height: 100%;
+  min-height: 35px;
+  width: 100%;
+}
+.css-1eqpw1q {
+  font-size: 32px;
+  color: white;
+}
+</style>
