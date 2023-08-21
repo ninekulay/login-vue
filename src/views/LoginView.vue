@@ -19,7 +19,7 @@
                 <div class="css-8e5b3">
                   <div class="css-1s3tlo7-Label">
                     <label>
-                      <div class="css-xhqy0o">Username</div>
+                      <div class="css-xhqy0o">Username (without @scg.com)</div>
                     </label>
                   </div>
                   <div>
@@ -40,7 +40,7 @@
                 <div class="css-8e5b3">
                   <div class="css-1s3tlo7-Label">
                     <label>
-                      <div class="css-xhqy0o">รหัสผ่าน</div>
+                      <div class="css-xhqy0o">Password</div>
                     </label>
                   </div>
                   <div>
@@ -51,7 +51,7 @@
                           id="password"
                           name="password"
                           class="css-1bjepp-input-input"
-                          placeholder="กรุณากรอกรหัสผ่าน"
+                          placeholder="password"
                           autocomplete="on"
                           required
                         />
