@@ -43,6 +43,7 @@
 </template>
 <script>
 import aad from "../store/aad";
+import { LamdaAcknow, LoginSilo } from "../store/login";
 
 export default {
   data() {
@@ -60,11 +61,21 @@ export default {
   },
   methods: {
     async callLogin() {
-      aad.login().then((account) => {
+      try {
+        const account = await aad.login();
+
         if (account !== null) {
           this.username = account.userName;
+          const result = await LamdaAcknow(account.userName);
+          if (result.message == "Login") {
+            LoginSilo(account.userName);
+          }
+        } else {
+          alert("ไม่สามารถเข้าสู่ระบบ");
         }
-      });
+      } catch (error) {
+        // console.error("An error occurred:", error);
+      }
     },
     logout() {
       aad.logout();

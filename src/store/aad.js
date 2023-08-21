@@ -8,7 +8,8 @@ const msalConfig = {
     authority:
       "https://login.microsoftonline.com/5db8bf0e-8592-4ed0-82b2-a6d4d77933d4",
     // Full redirect URL, in form of http://localhost:3000
-    redirectUri: "https://www.qonnect-apps.com/doopoon",
+    // redirectUri: "https://www.qonnect-apps.com/doopoon",
+    redirectUri: "http://localhost:8080",
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored
