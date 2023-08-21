@@ -36,7 +36,7 @@ export function LoginSilo(email) {
     });
     if (response.status === 200) {
       setTimeout(() => {
-        location.href = `${process.env.VUE_APP_URL_SILO}/login`;
+        window.open = (`${process.env.VUE_APP_URL_SILO}/login`, "_blank");
       }, 200);
     } else {
       alert("ไม่สามารถเข้าระบบ");
