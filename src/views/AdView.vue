@@ -9,7 +9,7 @@
             alt="Grafana"
           />
           <div class="css-1w4npsm">
-            <h1 class="css-1eqpw1q">Welcome to Qonnect</h1>
+            <h1 class="css-1eqpw1q">Welcome to Qonnect {{ username }}</h1>
           </div>
         </div>
         <div class="css-9h8xxw">
@@ -17,48 +17,8 @@
             <div class="css-lcb2lo">
               <form class="css-xs0vux" id="form-UserManagement">
                 <div class="css-8e5b3">
-                  <div class="css-1s3tlo7-Label">
-                    <label>
-                      <div class="css-xhqy0o">Username (without @scg.com)</div>
-                    </label>
-                  </div>
-                  <div>
-                    <div class="css-1kn3rgh-input-wrapper">
-                      <div class="input-group" style="width: 100%">
-                        <input
-                          type="text"
-                          id="username"
-                          name="username"
-                          class="css-1bjepp-input-input"
-                          placeholder="username"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="css-8e5b3">
-                  <div class="css-1s3tlo7-Label">
-                    <label>
-                      <div class="css-xhqy0o">Password</div>
-                    </label>
-                  </div>
-                  <div>
-                    <div class="css-1kn3rgh-input-wrapper">
-                      <div class="input-group" style="width: 100%">
-                        <input
-                          type="password"
-                          id="password"
-                          name="password"
-                          class="css-1bjepp-input-input"
-                          placeholder="password"
-                          autocomplete="on"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
                   <button
+                    v-if="username === ''"
                     class="css-1daj7gy-button"
                     aria-label="Login button"
                     type="button"
@@ -66,6 +26,12 @@
                   >
                     <span class="css-1mhnkuh">เข้าสู่ระบบ</span>
                   </button>
+                  <div v-else>
+                    <span> {{ username }}</span>
+                    <button style="color: red" type="button" @click="logout()">
+                      Logout
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
@@ -76,32 +42,32 @@
   </div>
 </template>
 <script>
-import { LamdaAcknow } from "@/store/login";
+import aad from "../store/aad";
 
 export default {
   data() {
     return {
-      Products: {},
+      username: "",
     };
+  },
+  created() {
+    aad.getAccount().then((account) => {
+      if (account !== null) {
+        this.username = account.userName;
+        console.log(account);
+      }
+    });
   },
   methods: {
     async callLogin() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      if (username != "" && password != "") {
-        const data = {
-          username: username,
-          password: password,
-          message: "OK",
-        };
-        LamdaAcknow(data);
-        // const result = await LoginAd(data);
-        // if (result == "OK") {
-        //   LamdaAcknow(result);
-        // } else {
-        //   alert("ไม่สามารถเข้าสู่ระบบ");
-        // }
-      }
+      aad.login().then((account) => {
+        if (account !== null) {
+          this.username = account.userName;
+        }
+      });
+    },
+    logout() {
+      aad.logout();
     },
   },
 };
