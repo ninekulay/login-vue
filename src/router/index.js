@@ -13,9 +13,9 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ "../views/AdView.vue");
     },
-    // meta: {
-    //   title: "AD LOGIN", // Set the title for this route
-    // },
+    meta: {
+      title: "AD LOGIN", // Set the title for this route
+    },
   },
   // {
   //   path: "/doopoon-login",
@@ -39,6 +39,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.length === 0) {
     next({ name: "home" }); // Redirect to the login page
   } else {
+    document.title = to.meta.title || "Qonnect";
     next(); // Continue with the navigation
   }
 });
