@@ -143,13 +143,18 @@ export default {
   line-height: 30px;
   vertical-align: middle;
   cursor: pointer;
-  border: 1px solid rgb(50, 116, 217);
+  border: 1px solid #ee2524;
   border-radius: 2px;
-  background: linear-gradient(rgb(50, 116, 217) 0%, rgb(31, 96, 196) 100%);
-  color: rgb(255, 255, 255);
+  background: white;
+  color: #ee2524;
   -webkit-box-pack: center;
   justify-content: center;
   width: 100%;
+}
+.css-1daj7gy-button:hover {
+  background: #ee2524;
+  border: 1px solid #ee2524;
+  color: white;
 }
 .css-1jciaoi {
   background: url(../assets/login_background_dark.svg) center center / cover
