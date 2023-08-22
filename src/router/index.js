@@ -13,9 +13,9 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ "../views/AdView.vue");
     },
-    meta: {
-      title: "AD LOGIN", // Set the title for this route
-    },
+    // meta: {
+    //   title: "AD LOGIN", // Set the title for this route
+    // },
   },
   // {
   //   path: "/doopoon-login",
@@ -32,9 +32,9 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.title) {
-    document.title = to.meta.title;
-  }
+  // if (to.meta.title) {
+  //   document.title = to.meta.title;
+  // }
   // Check if the route path exists, otherwise redirect to the login page
   if (to.matched.length === 0) {
     next({ name: "home" }); // Redirect to the login page
