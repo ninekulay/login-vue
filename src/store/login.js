@@ -30,17 +30,12 @@ export async function LamdaAcknow(data) {
 
 export function LoginSilo(email) {
   try {
-    const response = axios.post(`${process.env.VUE_APP_URL_SILO}/login`, {
-      user: email,
-      password: "meismeis",
-    });
-    if (response.status === 200) {
-      setTimeout(() => {
-        window.open = (`${process.env.VUE_APP_URL_SILO}/login`, "_blank");
-      }, 200);
-    } else {
-      alert("ไม่สามารถเข้าระบบ");
-    }
+    setTimeout(() => {
+      // console.log(
+      //   `${process.env.VUE_APP_URL_SILO}/d/qEWlL2RSk/login-scg?orgId=1&data=${email}&kiosk`
+      // );
+      location.href = `${process.env.VUE_APP_URL_SILO}/d/qEWlL2RSk/login-scg?orgId=1&data=${email}&kiosk`;
+    }, 200);
   } catch (error) {
     console.error("Error :", error);
     throw error; // Rethrow the error for the caller to handle
