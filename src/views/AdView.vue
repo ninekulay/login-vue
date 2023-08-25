@@ -69,6 +69,10 @@ export default {
           const result = await LamdaAcknow(account.userName);
           if (result.message == "Login") {
             LoginSilo(account.userName);
+          } else if (result.message == "Not found") {
+            alert("ไม่พบข้อมูลผู้ใช้งาน กรุณาติดต่อ Admin");
+          } else {
+            alert("ไม่สามารถเข้าสู่ระบบ");
           }
         } else {
           alert("ไม่สามารถเข้าสู่ระบบ");
