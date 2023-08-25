@@ -5,26 +5,30 @@
         <div class="css-1yyz87g">
           <img
             class="css-1woe985"
-            src="../assets/qonnect_icon.svg"
-            alt="Grafana"
+            src="../assets/doopoon-bg.png"
+            alt="logo"
+            width="200"
           />
           <div class="css-1w4npsm">
-            <h1 class="css-1eqpw1q">Welcome to Qonnect {{ username }}</h1>
+            <h1 class="css-1eqpw1q">SCG LOGIN {{ username }}</h1>
           </div>
         </div>
         <div class="css-9h8xxw">
           <div class="css-1t0mszb">
             <div class="css-lcb2lo">
               <form class="css-xs0vux" id="form-UserManagement">
-                <div class="css-8e5b3">
+                <div class="form-login">
                   <button
                     v-if="username === ''"
-                    class="css-1daj7gy-button"
+                    class="domain"
                     aria-label="Login button"
                     type="button"
                     @click="callLogin()"
                   >
-                    <span class="css-1mhnkuh">เข้าสู่ระบบ</span>
+                    <span class="css-1mhnkuh">
+                      <i class="fa fa-lock" aria-hidden="true"></i>
+                      เข้าสู่ระบบ</span
+                    >
                   </button>
                   <div v-else>
                     <span> {{ username }}</span>
@@ -32,6 +36,14 @@
                       Logout
                     </button>
                   </div>
+                  <button
+                    @click="callMainMenu()"
+                    type="button"
+                    class="back-page"
+                  >
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    กลับ
+                  </button>
                 </div>
               </form>
             </div>
@@ -60,10 +72,12 @@ export default {
     });
   },
   methods: {
+    callMainMenu() {
+      location.href = `${process.env.VUE_APP_URL_SILO_MAIN_LOGIN}`;
+    },
     async callLogin() {
       try {
         const account = await aad.login();
-
         if (account !== null) {
           this.username = account.userName;
           const result = await LamdaAcknow(account.userName);
@@ -87,7 +101,9 @@ export default {
   },
 };
 </script>
+
 <style>
+@import url("../store/font-awesome.css");
 .css-1yyz87g {
   display: flex;
   -webkit-box-align: center;
@@ -241,5 +257,34 @@ html {
 .css-1eqpw1q {
   font-size: 32px;
   color: white;
+}
+.form-login button {
+  cursor: pointer;
+  font-family: "Sarabun", sans-serif;
+  padding: 0.5rem 1rem;
+  text-align: start;
+  transition: ease-in-out 0.2s;
+  width: 100%;
+}
+.form-login button.domain {
+  background: transparent;
+  border: 1px solid #ea1e26;
+  border-radius: 4px;
+  color: #ea1e26;
+}
+.form-login button.domain:hover {
+  background: #ea1e26;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.form-login .back-page {
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  color: #fff;
+  text-align: center;
+  margin: 0.5rem 0;
 }
 </style>
