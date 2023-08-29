@@ -31,7 +31,7 @@
                     >
                   </button>
                   <div v-else>
-                    <span> {{ username }}</span>
+                    <!-- <span> {{ username }}</span> -->
                     <button style="color: red" type="button" @click="logout()">
                       Logout
                     </button>
