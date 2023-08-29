@@ -9,7 +9,8 @@ export async function LoginAd(data) {
     });
     return response.data; // You can return the response data for further use
   } catch (error) {
-    console.error("Error :", error);
+    // console.error("Error :", error);
+    alert("ไม่สามารถเข้าสู่ระบบได้ AD กรุณาติดต่อ Admin");
     throw error; // Rethrow the error for the caller to handle
   }
 }
@@ -23,8 +24,17 @@ export async function LamdaAcknow(data) {
     });
     return response.data; // You can return the response data for further use
   } catch (error) {
-    console.error("Error :", error);
-    throw error; // Rethrow the error for the caller to handle
+    if (error.response && error.response.status === 404) {
+      // Handle 404 error
+      if (error.response.statusText == "Not Found") {
+        alert("ไม่พบข้อมูลผู้ใช้ในระบบ กรุณาติดต่อ Admin");
+      }
+      throw new Error("Data not found");
+    } else {
+      // Handle other errors
+      console.error("Error :", error);
+      throw error; // Rethrow the error for the caller to handle
+    }
   }
 }
 
