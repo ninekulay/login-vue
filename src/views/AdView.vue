@@ -203,7 +203,7 @@ export default {
   min-height: 320px;
   border-radius: 3px;
   padding: 20px 0px;
-  background: 0% 0% / cover rgba(18, 28, 41, 0.65);
+  background: 0% 0% / cover rgb(53 76 104 / 50%);
 }
 body {
   font-family: Roboto, Helvetica Neue, Arial, sans-serif;
