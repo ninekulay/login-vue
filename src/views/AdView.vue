@@ -86,10 +86,10 @@ export default {
           } else if (result.message == "Not found") {
             alert("ไม่พบข้อมูลผู้ใช้งาน กรุณาติดต่อ Admin");
           } else {
-            alert("ไม่สามารถเข้าสู่ระบบ");
+            alert("ไม่สามารถเข้าสู่ระบบ DooPoon");
           }
         } else {
-          alert("ไม่สามารถเข้าสู่ระบบ");
+          alert("ไม่สามารถเข้าสู่ระบบผ่าน AD ได้");
         }
       } catch (error) {
         // console.error("An error occurred:", error);
