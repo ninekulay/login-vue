@@ -45,6 +45,22 @@
                     กลับ
                   </button>
                 </div>
+                <div class="license-qonnect">
+                  <p
+                    onclick="location.href=`https://www.qonnect.ai/`"
+                    style="cursor: pointer"
+                  >
+                    Powered by Qonnect&nbsp;
+                    <span style="margin: 0; padding: 0">
+                      <img
+                        style="padding: 0; margin: 0"
+                        class="css-1woe985"
+                        src="../assets/logo_black.png"
+                        alt="Qonnect"
+                      />
+                    </span>
+                  </p>
+                </div>
               </form>
             </div>
           </div>
@@ -103,6 +119,7 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@100;200;300;400;500;600;700;800&display=swap");
 @import url("../store/font-awesome.css");
 .css-1yyz87g {
   display: flex;
@@ -177,8 +194,11 @@ export default {
   color: white;
 }
 .css-1jciaoi {
-  background: url(../assets/login_background_dark.svg) center center / cover
-    no-repeat rgb(0, 0, 0);
+  background-image: url(../assets/doopoon-bg-red.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   min-height: 100vh;
   min-width: 100%;
   margin-left: 0px;
@@ -201,9 +221,11 @@ export default {
   justify-content: center;
   z-index: 1;
   min-height: 320px;
-  border-radius: 3px;
+  border-radius: 8px;
   padding: 20px 0px;
-  background: 0% 0% / cover rgb(53 76 104 / 50%);
+  color: #000;
+  /*background: 0% 0% / cover rgb(53 76 104 / 50%);*/
+  background-color: #fff;
 }
 body {
   font-family: Roboto, Helvetica Neue, Arial, sans-serif;
@@ -256,7 +278,7 @@ html {
 }
 .css-1eqpw1q {
   font-size: 32px;
-  color: white;
+  color: #000;
 }
 .form-login button {
   cursor: pointer;
@@ -265,6 +287,7 @@ html {
   text-align: start;
   transition: ease-in-out 0.2s;
   width: 100%;
+  font-size: 16px;
 }
 .form-login button.domain {
   background: transparent;
@@ -277,14 +300,44 @@ html {
   border: 1px solid #fff;
   color: #fff;
 }
-.form-login .back-page {
+.form-login button.back-page {
   background: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  color: #fff;
+  color: #000;
   text-align: center;
   margin: 0.5rem 0;
+}
+.form-login button.back-page:hover {
+  background-color: #000;
+  color: #fff;
+}
+.form-login button.back-page i {
+  margin: 0 0.3rem;
+}
+.form-login * {
+  font-family: "Sarabun", sans-serif;
+}
+.license-qonnect {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+}
+.license-qonnect img {
+  width: 16px;
+  height: 16px;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrollbars */
 }
 </style>
