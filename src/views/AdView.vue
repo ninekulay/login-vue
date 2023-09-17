@@ -317,9 +317,9 @@ html {
 .form-login button.back-page i {
   margin: 0 0.3rem;
 }
-.form-login * {
+/* .form-login * {
   font-family: "Sarabun", sans-serif;
-}
+} */
 .license-qonnect {
   display: flex;
   justify-content: end;
