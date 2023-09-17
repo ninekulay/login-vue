@@ -83,7 +83,7 @@ export default {
     aad.getAccount().then((account) => {
       if (account !== null) {
         this.username = account.userName;
-        console.log(account);
+        // console.log(account);
       }
     });
   },
