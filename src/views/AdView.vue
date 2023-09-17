@@ -282,7 +282,7 @@ html {
 }
 .form-login button {
   cursor: pointer;
-  font-family: "Sarabun", sans-serif;
+  /* font-family: "Sarabun", sans-serif; */
   padding: 0.5rem 1rem;
   text-align: start;
   transition: ease-in-out 0.2s;
