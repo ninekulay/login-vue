@@ -1,13 +1,13 @@
 {
-    "name": "Qonnect Apps",
+    "name": "Qonnect",
     "short_name": "Qonnect",
     "start_url": "/",
     "display": "fullscreen",
     "theme_color": "#000000",
     "background_color": "#ffffff",
-    "icon": [
+    "icons": [
         {
-            "src": "logo_black.png",
+            "src": "./img/icons/qonnect_icon.png",
             "sizes": "192x192",
             "type": "image/png"
         }
